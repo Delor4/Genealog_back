@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Person;
 
 class PersonController extends Controller
 {
@@ -23,7 +24,7 @@ class PersonController extends Controller
      */
     public function create()
     {
-        //
+        return view('persons.create');
     }
 
     /**
@@ -34,7 +35,21 @@ class PersonController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'first_name'=>'required',
+            'last_name'=>'required',
+        ]);
+
+        $person = new Person([
+            'first_name' => $request->get('first_name'),
+            'last_name' => $request->get('last_name'),
+            'birth_year' => $request->get('birth_year'),
+            'sex' => $request->get('sex'),
+            'parent_id' => $request->get('parent_id'),
+        ]);
+        $person->save();
+        return redirect('/persons')->with('success', 'Person saved!');
+
     }
 
     /**

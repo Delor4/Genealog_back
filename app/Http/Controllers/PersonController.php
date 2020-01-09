@@ -26,7 +26,9 @@ class PersonController extends Controller
      */
     public function create()
     {
-        return view('persons.create');
+		$parents = Person::select('last_name', 'first_name', 'id')->get();
+
+        return view('persons.create', compact('parents', $parents));
     }
 
     /**

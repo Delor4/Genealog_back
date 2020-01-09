@@ -32,11 +32,19 @@
           </div>
           <div class="form-group">
               <label for="sex">Sex:</label>
-              <input type="text" class="form-control" name="sex"/>
+              <select class="form-control" name="sex" >
+				<option value="f">Female</option>
+				<option value="m">Male</option>
+				</select>
           </div>
           <div class="form-group">
               <label for="parent_id">Parent:</label>
-              <input type="text" class="form-control" name="parent_id"/>
+			  <select class="form-control" name="parent_id" >
+				<option value="">-</option>
+					@foreach ($parents as $parent)
+						<option value="{{$parent->id}}">{{$parent->first_name}}</option>
+					@endforeach
+				</select>
           </div>
           <button type="submit" class="btn btn-primary-outline">Add person</button>
       </form>

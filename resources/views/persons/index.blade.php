@@ -12,6 +12,7 @@
           <td>Birth Year</td>
           <td>Sex</td>
           <td>Parent</td>
+		  <td>Childrens</td>
           <td colspan = 2>Actions</td>
         </tr>
     </thead>
@@ -22,7 +23,11 @@
             <td>{{$person->first_name}} {{$person->last_name}}</td>
             <td>{{$person->birth_year}}</td>
             <td>{{$person->sex}}</td>
-            <td>{{$person->parent_id}}</td>
+            <td>{{$person->parent->first_name ?? ''}}</td>
+			<td>@foreach($person->childrens as $children)
+				{{$children->first_name}}
+				@endforeach
+			</td>
             <td>
                 <a href="{{ route('persons.edit',$person->id)}}" class="btn btn-primary">Edit</a>
             </td>

@@ -13,4 +13,11 @@ class Person extends Model
         'sex',
         'parent_id',
     ];
+	
+	public function childrens() {
+		return $this->hasMany(Person::class, 'parent_id');
+	}
+	public function parent() {
+		return $this->belongsTo(Person::class, 'parent_id');
+	}
 }

@@ -45,8 +45,8 @@ class PersonController extends Controller
         $person = new Person([
             'first_name' => $request->get('first_name'),
             'last_name' => $request->get('last_name'),
-            'birth_year' => $request->get('birth_year'),
-            'sex' => $request->get('sex'),
+            'birth_year' => $request->get('birth_year') ?? 1900,
+            'sex' => $request->get('sex') ?? 'f',
             'parent_id' => $request->get('parent_id'),
         ]);
         $person->save();

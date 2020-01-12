@@ -75,7 +75,13 @@ class PersonController extends Controller
      */
     public function edit($id)
     {
-        //
+        $person = Person::find($id);
+		$parents = Person::select('last_name', 'first_name', 'id')->where('id', '<>', $id)->get();
+
+        return view('persons.edit')
+			->with(compact('person'))
+			->with(compact('parents')
+		);
     }
 
     /**
@@ -87,7 +93,21 @@ class PersonController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'first_name'=>'required',
+            'last_name'=>'required',
+        ]);
+
+        $person = Person::find($id);
+        $person->first_name =  $request->get('first_name');
+        $person->last_name = $request->get('last_name');
+        $person->birth_year = $request->get('birth_year') ?? 1900;
+        $person->sex = $request->get('sex') ?? 'f';
+        $person->parent_id = $request->get('parent_id');
+
+        $person->save();
+
+        return redirect('/persons')->with('success', 'Person updated!');
     }
 
     /**

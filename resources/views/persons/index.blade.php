@@ -10,7 +10,7 @@
     </div>
   @endif
 	</div>
-    
+
 <h1 class="display-3">Persons</h1>    
   <table class="table table-striped">
     <thead>
@@ -50,6 +50,7 @@
         @endforeach
     </tbody>
   </table>
-<div>
-</div>
+  <div>
+    <a style="margin: 19px;" href="{{ route('persons.create')}}" class="btn btn-primary">New person</a>
+  </div> 
 @endsection

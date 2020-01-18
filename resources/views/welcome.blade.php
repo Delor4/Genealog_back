@@ -65,6 +65,13 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
+        @if ($errors->any())
+    <ul>
+    @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+    @endforeach
+    </ul>
+@endif
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth

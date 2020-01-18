@@ -1,3 +1,5 @@
+Simple REST api for genealogical tree of descendants. Student's project.
+
 To run Laravel 5.8.36 you need:
 - PHP >= 7.1.3
 - BCMath PHP Extension

@@ -28,7 +28,7 @@ Run server:
 	
 	php artisan serve
 
-Now server shuld running on:
+Now server should running on:
 	
 	http://localhost:8000
 

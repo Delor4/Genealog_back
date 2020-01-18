@@ -10,14 +10,19 @@ To run Laravel 5.8.36 you need:
 - PDO PHP Extension
 - Tokenizer PHP Extension
 - XML PHP Extension
+and Composer (https://getcomposer.org/)
 
-Copy .env.example to .env
+Install missing packages:
+
+	composer install
+
+Copy `.env.example` to `.env`
 
 Generate new app key:
 	
 	php artisan key:generate
 
-Edit .env eg. to use sqlite:
+Edit `.env` eg. to use sqlite:
 
 	DB_CONNECTION=sqlite
 	DB_DATABASE=/absolute/path/to/database.sqlite

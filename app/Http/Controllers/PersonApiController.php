@@ -16,19 +16,7 @@ class PersonApiController extends Controller
     {
         return Person::all();
     }
-    
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        $parents = Person::select('last_name', 'first_name', 'id')->get();
-        
-        return view('persons.create', compact('parents', $parents));
-    }
-    
+       
     /**
      * Store a newly created resource in storage.
      *
@@ -45,7 +33,7 @@ class PersonApiController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  Person $person
      * @return \Illuminate\Http\Response
      */
     public function show(Person $person)
@@ -58,7 +46,7 @@ class PersonApiController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Person $person
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Person $person)
@@ -71,7 +59,7 @@ class PersonApiController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  Person $person
      * @return \Illuminate\Http\Response
      */
     public function delete(Person $person)

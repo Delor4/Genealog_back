@@ -66,3 +66,30 @@ Endpoints:
 | PUT      | api/persons/{id_person} | update person |
 | DELETE   | api/persons/{id_person} | delete person |
 
+---
+Example of output:
+	
+	curl -H"Authorization: Bearer api_key" http://localhost:8000/api/persons
+
+	[
+		{
+			"id" : 2,
+			"created_at" : "2020-01-19 08:26:36",
+			"updated_at" : "2020-01-19 08:26:36",
+			"first_name" : "Janina",
+			"last_name" : "Kowalska",
+			"birth_year" : "1993",
+			"sex" : "f",
+			"parent_id" : 1
+		},
+		{
+			"id" : 1,
+			"created_at" : "2020-01-19 08:26:06",
+			"updated_at" : "2020-01-19 08:26:06",
+			"first_name" : "Jan",
+			"last_name" : "Kowalski",
+			"birth_year" : "1965",
+			"sex" : "m",
+			"parent_id" : null
+		}
+	]

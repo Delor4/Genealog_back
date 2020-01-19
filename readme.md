@@ -61,8 +61,8 @@ Endpoints:
 | METHOD   | URI | Description |
 |----------|-------------------------|:----------:|
 | POST     | api/persons | new person |
-| GET|HEAD | api/persons | index |
-| GET|HEAD | api/persons/{id_person} | show person |
+| GET HEAD | api/persons | index |
+| GET HEAD | api/persons/{id_person} | show person |
 | PUT      | api/persons/{id_person} | update person |
 | DELETE   | api/persons/{id_person} | delete person |
 

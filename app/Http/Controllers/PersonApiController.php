@@ -51,7 +51,8 @@ class PersonApiController extends Controller
      */
     public function update(Request $request, Person $person)
     {
-        $person = Person::update($request->all());
+        $person->fill($request->all());
+        $person->save();
         
         return response()->json($person, 200);
     }
